@@ -2,7 +2,7 @@
     "metadata": {
         "name": "Sáng Tác Việt",
         "author": "vBook",
-        "version": 7,
+        "version": 8,
         "source": "https://sangtacviet.app",
         "regexp": "(www.)?sangtacviet.(pro|vip|com|app)/truyen/([a-zA-Z0-9])+/\\d+/\\d+/?$",
         "description": "",
