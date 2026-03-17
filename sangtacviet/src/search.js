@@ -1,6 +1,16 @@
 function execute(key, page) {
     if (!page) page = '1';
-    let response = fetch('https://sangtacviet.app/?find=&findinname=' + key + '&minc=0&tag=&p=' + page);
+
+    const urlencoded = new URLSearchParams();
+    urlencoded.append("ignores", "");
+
+    const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: urlencoded,
+    redirect: "follow"
+    };
+    let response = fetch('https://sangtacviet.app/io/searchtp/searchBooks?find=&findinname=' + key + '&minc=0&tag=&p=' + page, requestOptions);
 
     function toCapitalize(sentence) {
         const words = sentence.split(" ");
@@ -13,7 +23,7 @@ function execute(key, page) {
     if (response.ok) {
         let doc = response.html()
         let next = doc.select(".pagination").select("li.active + li").text()
-        let el = doc.select("#searchviewdiv a.booksearch")
+        let el = doc.select("a.booksearch")
         let data = [];
         el.forEach(e => {
             data.push({
