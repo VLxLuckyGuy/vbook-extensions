@@ -1,6 +1,6 @@
 function execute(key, page) {
     if (!page) page = '1';
-    let response = fetch('https://sangtacviet.pro/?find=&findinname=' + key + '&minc=0&tag=&p=' + page);
+    let response = fetch('https://sangtacviet.app/?find=&findinname=' + key + '&minc=0&tag=&p=' + page);
 
     function toCapitalize(sentence) {
         const words = sentence.split(" ");
@@ -21,7 +21,7 @@ function execute(key, page) {
                 link: e.select("a").first().attr("href"),
                 cover: e.select("img").first().attr("src"),
                 description: e.select(" div > span.searchtag").last().text(),
-                host: "https://sangtacviet.pro"
+                host: "https://sangtacviet.app"
             })
         });
         return Response.success(data, next)
